@@ -11,7 +11,7 @@ def readme():
 
 
 def windows_filter(package):
-    """
+    r"""
     TAMO not supported in windows:
 
     MDsupport.cxx

@@ -99,9 +99,11 @@ class NCBI:
         _save_as(url, os.path.join(download_dir, 'edit_imgt_file.pl'), chmod=True)
 
     def download_internal_data(self, download_dir):
-        url = self._url + 'internal_data/'
+        url = self._url + 'old_internal_data/'
         species = [s.strip('/') for s in self._extract_directories(url)]
         for s in species:
+            if s == "HHS Vulnerability Disclosure":
+                continue
             species_url = url + s
             filenames = self._extract_directories(species_url)
             download_path = os.path.join(download_dir, 'internal_data', s)
@@ -109,17 +111,19 @@ class NCBI:
                 os.makedirs(download_path)
             for filename in filenames:
                 # ignore rhesus_monkey's CVS directory
-                if filename == 'CVS':
+                if filename == 'CVS' or filename == "HHS Vulnerability Disclosure":
                     continue
                 _save_as(species_url + '/' + filename, os.path.join(download_path, filename), chmod=False)
 
     def download_optional_file(self, download_dir):
-        url = self._url + 'optional_file/'
+        url = self._url + 'old_optional_file/'
         filenames = self._extract_directories(url)
         download_path = os.path.join(download_dir, 'optional_file')
         if not os.path.exists(download_path):
             os.makedirs(download_path)
         for filename in filenames:
+            if filename == "HHS Vulnerability Disclosure":
+                continue
             _save_as(url + "/" + filename, os.path.join(download_path, filename), chmod=False)
 
 
