@@ -21,7 +21,7 @@ def windows_filter(package):
     :param package: package name
     :return: True if this package should be installed in the host OS (True for all packages in non-windows machines)
     Windows machines will not install TAMO
-    """
+    r"""
     if platform.system() == "Windows":
         return 'TAMO' not in package.upper()
     return True
