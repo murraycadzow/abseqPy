@@ -197,4 +197,4 @@ Some features are *disabled* when running in *Windows* due to software incompati
 ---
 
 <small><b id="foot1">1</b></small><small> long option names are option names with a double dash prefix, for example,
-`--help` is a long option while `-h` is not [↩](#sup1)</small>
+`--help` is a long option while `-h` is not</small>
